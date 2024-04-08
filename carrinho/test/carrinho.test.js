@@ -31,6 +31,6 @@ describe('Teste do Carrinho', () => {
       carrinho.finalizaCompra();
     }
 
-    expect(englobaErroCarrinho).toThrowError('Carrinho de comprar vazio')
+    expect(englobaErroCarrinho).toThrowError('Carrinho de compras vazio');
   });
 });
