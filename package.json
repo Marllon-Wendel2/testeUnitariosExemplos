@@ -1,7 +1,6 @@
 {
   "name": "2495-node-testes",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
@@ -17,5 +16,6 @@
     "eslint-plugin-import": "^2.26.0",
     "jest": "28.1.0"
   },
-  "type": "module"
+  "type": "module",
+  "description": ""
 }
