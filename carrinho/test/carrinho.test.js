@@ -25,12 +25,34 @@ describe('Teste do Carrinho', () => {
     expect(carrinho).toHaveProperty('total');
   });
 
-  it('Deve lançar erro ao finalizar compra com carrinho vazio', () => {  
+  it('Deve lançar erro ao finalizar compra com carrinho vazio', () => {
     function englobaErroCarrinho() {
       const carrinho = new Carrinho();
       carrinho.finalizaCompra();
     }
 
     expect(englobaErroCarrinho).toThrowError('Carrinho de compras vazio');
+  });
+
+  it('Deve adiconar o frete', () => {
+    const carrinho = new Carrinho();
+    carrinho.adicionaFrete(10);
+    expect(carrinho.frete).toBe(10);
+  });
+
+  it('Deve finalizar as compras', () => {
+    const item = new Item('Banana', 2, 5);
+    const item2 = new Item('Mel', 1, 5);
+
+    const carrinho = new Carrinho();
+    carrinho.adiciona(item);
+    carrinho.adiciona(item2);
+    carrinho.adicionaFrete(10);
+
+    expect(carrinho.finalizaCompra()).toStrictEqual({
+      subtotal: 15,
+      frete: 10,
+      total: 25,
+    });
   });
 });
